@@ -3,11 +3,11 @@ A revamp of [jekyll-postcss](https://github.com/mhanberg/jekyll-postcss) that us
 
 ## Table of contents
 
-- [Installation](README.md#installation)
-- [Usage](README.md#usage)
-- [Why v2?](README.md#why-v2)
-- [Why not?](README.md#why-not)
-- [TODO](README.md#todo)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Why v2?](#why-v2)
+- [Why not?](#why-not)
+- [TODO](#todo)
 
 ## Installation
 
