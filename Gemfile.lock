@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jekyll-postcss-v2 (0.0.0)
+    jekyll-postcss-v2 (1.0.0)
 
 GEM
   remote: https://rubygems.org/
