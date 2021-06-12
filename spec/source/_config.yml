@@ -1,0 +1,7 @@
+plugins:
+  - jekyll-postcss-v2
+
+exclude:
+  - postcss.config.js
+  - package.json
+  - package-lock.json

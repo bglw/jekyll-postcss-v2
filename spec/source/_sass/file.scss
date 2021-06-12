@@ -1,0 +1,12 @@
+:root {
+    --s-design-min: 400;
+    --s-design-max: 800;
+}
+
+p {
+    a {
+        color: red;
+        font-size: var(--s-10-20);
+        padding: var(--s-5-10);
+    }
+}

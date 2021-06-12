@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "postcss": "^8.3.2",
+    "postcss-cli": "^8.3.1",
+    "postcss-fluidvars": "^1.0.1"
+  }
+}
