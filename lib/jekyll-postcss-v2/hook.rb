@@ -16,20 +16,20 @@ module PostCssV2
         exit 1
       end
 
-      config = Pathname.new(source + "/postcss.config.js")
-      unless config.exist?
+      @config = Pathname.new(source + "/postcss.config.js")
+      unless @config.exist?
         Jekyll.logger.error "PostCSS v2:",
                             "postcss.config.js not found.
                              Make sure it exists in your Jekyll source."
         Jekyll.logger.error "PostCSS v2:",
-                            "Couldn't find #{config}"
+                            "Couldn't find #{@config}"
         exit 1
       end
     end
 
     def process(page)
       file_path = Pathname.new(page.site.dest + page.url)
-      postcss_command = `#{@script} #{file_path} -r`
+      postcss_command = `#{@script} #{file_path} -r --config #{@config}`
       Jekyll.logger.info "PostCSS v2:",
                          "Rewrote #{page.url} #{postcss_command}"
     end
