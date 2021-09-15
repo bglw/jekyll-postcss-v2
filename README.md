@@ -38,11 +38,10 @@ Configure your `postcss.config.js` file in your jekyll source directory.
 
 ## Deployment
 
-Please note that this plugin isn't supported by [GitHub Pages](https://pages.github.com/), which means by default you are not able to use it, when you are hosting your site at GitHub Pages.
+Please note that this plugin isn't supported by [GitHub Pages](https://pages.github.com/).  
+To host on GitHub Pages and use this plugin, use GitHub Actions to build and deploy your website.
 
-However, there's the option to perform the build process via GitHub Actions.
-
-To do that, you need to create a yml-workflow-file inside .github/workflows of your repository that represents your build process. This could look like the following:
+To do that, you need to specify a workflow inside the `.github/workflows` of your repository for your build process. This could look like the following:
 
 ```yml
 name: Jekyll Deploy
@@ -53,7 +52,7 @@ on:
     - cron:  '30 5 * * *'
   push:
     branches:
-      - master
+      - main
     paths-ignore:
       - 'Gemfile'
       - 'README.md'
@@ -72,14 +71,13 @@ jobs:
         with:
           ruby-version: 2.7 # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-      # Install Node as this is needed for PurgeCSS
+      # Install Node as this is needed for PostCSS
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
           node-version: '14'
       # Install PostCSS plugins (from your package.json)
       - run: npm install
-      # - run: npm test ( this fails with exit code 1 - see package.json
       - name: Build site
       # use jekyll-action-ts to build
       # https://github.com/limjh16/jekyll-action-ts
