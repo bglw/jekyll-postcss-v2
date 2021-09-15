@@ -30,13 +30,15 @@ _In your jekyll source directory:_
 npm i -D postcss postcss-cli
 ```
 
-Also install any postcss plugins you wish to use. For example, [autoprefixer](https://github.com/postcss/autoprefixer), [cssnano](https://cssnano.co/) etc.
+Also install any postcss plugins you wish to use. For example, [fluidvars](https://github.com/bglw/postcss-fluidvars), [autoprefixer](https://github.com/postcss/autoprefixer), [cssnano](https://cssnano.co/) etc.
 
 ## Usage
 
 Configure your `postcss.config.js` file in your jekyll source directory.
 
 ## Deployment
+
+No extra configuration is required for deployment on platforms like [CloudCannon](https://cloudcannon.com/) which support custom plugins.
 
 Please note that this plugin isn't supported by [GitHub Pages](https://pages.github.com/).  
 To host on GitHub Pages and use this plugin, use GitHub Actions to build and deploy your website.
