@@ -27,7 +27,7 @@ plugins:
 
 _In your jekyll source directory:_
 ```bash
-npm i -D postcss postcss-cli
+npm i postcss postcss-cli
 ```
 
 Also install any postcss plugins you wish to use. For example, [fluidvars](https://github.com/bglw/postcss-fluidvars), [autoprefixer](https://github.com/postcss/autoprefixer), [cssnano](https://cssnano.co/) etc.
