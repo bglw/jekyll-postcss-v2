@@ -38,7 +38,7 @@ end
 
 Jekyll::Hooks.register :pages, :post_write do |page|
   if %r!\.css$! =~ page.url
-    engine = PostCssV2::Engine.new(page.site.source)
+    engine = PostCssV2::Engine.new(Dir.pwd)
     engine.process(page)
   end
 end
