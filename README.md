@@ -36,6 +36,15 @@ Also install any postcss plugins you wish to use. For example, [fluidvars](https
 
 Configure your `postcss.config.js` file in your jekyll source directory.
 
+## Configuration
+
+This plugin will try and locate Postcss automatically. If this fails, you can specify locations in the `_config.yml` file of your site:
+```yml
+postcss:
+  script: node_modules/.bin/postcss
+  config: postcss.config.js
+```
+
 ## Deployment
 
 No extra configuration is required for deployment on platforms like [CloudCannon](https://cloudcannon.com/) which support custom plugins.
