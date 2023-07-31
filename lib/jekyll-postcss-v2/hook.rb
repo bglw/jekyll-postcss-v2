@@ -4,9 +4,9 @@ require "pathname"
 
 module PostCssV2
   class Engine
-    def initialize(source)
-      @script = Pathname.new(source + "/node_modules/.bin/postcss")
-      unless @script.exist?
+    def initialize(source, options = {})
+      @script = File.expand_path(options[:script] || 'node_modules/.bin/postcss', source)
+      unless File.exist?(@script)
         Jekyll.logger.error "PostCSS v2:",
                             "PostCSS not found.
                              Make sure postcss and postcss-cli
@@ -16,8 +16,8 @@ module PostCssV2
         exit 1
       end
 
-      @config = Pathname.new(source + "/postcss.config.js")
-      unless @config.exist?
+      @config = File.expand_path(options[:config] || 'postcss.config.js', source)
+      unless File.exist?(@config)
         Jekyll.logger.error "PostCSS v2:",
                             "postcss.config.js not found.
                              Make sure it exists in your Jekyll source."
@@ -38,7 +38,10 @@ end
 
 Jekyll::Hooks.register :pages, :post_write do |page|
   if %r!\.css$! =~ page.url
-    engine = PostCssV2::Engine.new(page.site.source)
+    engine = PostCssV2::Engine.new(page.site.source, {
+      script: page.site.config.dig('postcss', 'script'),
+      config: page.site.config.dig('postcss', 'config'),
+    })
     engine.process(page)
   end
 end
